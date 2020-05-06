@@ -41,9 +41,9 @@ function Navigating(){
 
 // Add class 'active' to section when near top of viewport
 function Activating(){
-    active=false;//initially setting active as false
+    let active=false;//initially setting active as false
     for(let section of sections){
-        if((window.screenY+navigationBar.offsetHeight) < (section.offsetHeight+section.offsetTop) && !active){
+        if((window.scrollY+navigationBar.offsetHeight) < (section.offsetHeight+section.offsetTop) && !active){
             //if the scrolled pixels + unordered list height is less than section's offset height+offset top and  section is not set to active
             active = true;//make it active class
             section.classList.add('active');
@@ -75,5 +75,5 @@ document.addEventListener('DOMContentLoaded', function(){
     Navigating();//calling for function building navigation menu
     clickOnNavigation();//when clicking on a navigation name this will be called
 });
-windows.addEventListener("scroll", Activating());//handle for setting section class as active 
+window.addEventListener("scroll", Activating);//handle for setting section class as active 
 
